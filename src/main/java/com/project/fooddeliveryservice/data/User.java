@@ -17,8 +17,9 @@ public class User {
     private String firstName;
     private String lastName;
     private String phone;
+    private String password;
     private String address;
-    private String role;
+    private Integer role; // 1-administrator staff, 2-company employee, 3-deliveryman, 4-customer
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @ToString.Exclude

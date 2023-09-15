@@ -11,6 +11,8 @@ import lombok.ToString;
 public class OrderFood {
     @EmbeddedId
     OrderFoodKey id;
+    private int quantity;
+    private double subtotal;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
