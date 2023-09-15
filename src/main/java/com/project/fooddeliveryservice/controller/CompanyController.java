@@ -5,7 +5,6 @@ import com.project.fooddeliveryservice.service.ICompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class CompanyController {
 
     @PostMapping("/")
     public Company createCompany(@RequestBody Company company) {
-        return companyService.createCompany(company);
+        return companyService.createOrSaveCompany(company);
     }
 
     @GetMapping("/{id}")
@@ -38,9 +37,9 @@ public class CompanyController {
         return "Company successfully deleted!";
     }
 
-    @PutMapping("/{id}")
-    public Company updateCompany(@PathVariable("id") long id, @RequestBody Company company) {
-        return companyService.updateCompany(id, company);
+    @PutMapping("/")
+    public Company updateCompany(@RequestBody Company company) {
+        return companyService.createOrSaveCompany(company);
     }
 
     public static void main(String[] args) {

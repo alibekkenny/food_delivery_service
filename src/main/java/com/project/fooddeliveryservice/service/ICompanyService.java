@@ -5,9 +5,9 @@ import java.util.List;
 import com.project.fooddeliveryservice.data.Company;
 
 public interface ICompanyService {
-    Company createCompany(Company company);
+    Company createOrSaveCompany(Company company);
 
-    Company updateCompany(long id, Company company);
+//    Company updateCompany(long id, Company company);
 
     void deleteCompanyById(long id);
 

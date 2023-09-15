@@ -19,7 +19,7 @@ public class CompanyService implements ICompanyService {
     }
 
     @Override
-    public Company createCompany(Company company) {
+    public Company createOrSaveCompany(Company company) {
         return companyRepo.save(company);
     }
 
@@ -38,20 +38,20 @@ public class CompanyService implements ICompanyService {
         return companyRepo.findById(id);
     }
 
-    @Override
-    public Company updateCompany(long id, Company company) {
-        Company foundCompany = companyRepo.findById(id);
-        if (!Objects.equals(company.getName(), "")) {
-            foundCompany.setName(company.getName());
-        }
-        if (!Objects.equals(company.getCategory(), "")) {
-            foundCompany.setCategory(company.getCategory());
-        }
-        if (!Objects.equals(company.getLogoPath(), "")) {
-            foundCompany.setLogoPath(company.getLogoPath());
-        }
-        return companyRepo.save(foundCompany);
-    }
+//    @Override
+//    public Company updateCompany(long id, Company company) {
+//        Company foundCompany = companyRepo.findById(id);
+//        if (!Objects.equals(company.getName(), "")) {
+//            foundCompany.setName(company.getName());
+//        }
+//        if (!Objects.equals(company.getCategory(), "")) {
+//            foundCompany.setCategory(company.getCategory());
+//        }
+//        if (!Objects.equals(company.getLogoPath(), "")) {
+//            foundCompany.setLogoPath(company.getLogoPath());
+//        }
+//        return companyRepo.save(foundCompany);
+//    }
 
     @Override
     public void deleteCompanyById(long id) {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomePageController {
     @GetMapping
     public String home() {
-        return "Hello, the following api's are available: <br> /companies <br>/roles";
+        return "Hello, the following APIs are available: <br> /companies <br>/roles";
     }
 }
 

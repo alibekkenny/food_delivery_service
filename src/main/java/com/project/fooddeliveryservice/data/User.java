@@ -18,12 +18,7 @@ public class User {
     private String lastName;
     private String phone;
     private String address;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_id", nullable = false)
-    @JsonIgnore
-    @ToString.Exclude
-    private Role role;
+    private String role;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @ToString.Exclude
