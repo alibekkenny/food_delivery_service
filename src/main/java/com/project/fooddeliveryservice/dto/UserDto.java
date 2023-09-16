@@ -12,7 +12,7 @@ import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class UserDto {
     private long id;
     @JsonProperty("first_name")
     private String firstName;
@@ -23,6 +23,6 @@ public class UserDTO {
     private String password;
     private String address;
     private int role;
-    private List<OrderDTO> orders;
+    private List<OrderDto> orders;
 
 }

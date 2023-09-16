@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderFoodDTO {
-    private FoodDTO food;
+public class OrderFoodDto {
+    private FoodDto food;
     private int quantity;
     private double subtotal;
 

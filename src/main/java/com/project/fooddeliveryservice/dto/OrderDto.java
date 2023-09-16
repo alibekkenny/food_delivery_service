@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class OrderDTO {
+public class OrderDto {
     private long id;
     @JsonProperty("total_cost")
     private double totalCost;
@@ -20,5 +20,5 @@ public class OrderDTO {
     @JsonProperty("user_id")
     private long userId;
     @JsonProperty("order_foods")
-    private List<OrderFoodDTO> orderFoods;
+    private List<OrderFoodDto> orderFoods;
 }
