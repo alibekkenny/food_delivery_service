@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(uses = OrderFoodListMapper.class)
+@Mapper(uses = FoodMapper.class)
 public interface OrderFoodListMapper {
     OrderFoodListMapper INSTANCE = Mappers.getMapper(OrderFoodListMapper.class);
 

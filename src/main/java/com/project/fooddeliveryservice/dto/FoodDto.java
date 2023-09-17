@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodDto {
-    private long id;
+    private Long id;
     private String name;
     private String description;
     private double price;
-    @JsonProperty("image_path")
+    //    @JsonProperty("image_path")
     private String imagePath;
-    @JsonProperty("food_category_id")
-    private long foodCategoryId;
+    //    @JsonProperty("food_category_id")
+    private Long foodCategoryId;
 }

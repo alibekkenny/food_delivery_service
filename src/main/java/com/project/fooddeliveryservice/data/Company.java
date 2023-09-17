@@ -12,7 +12,7 @@ import org.hibernate.annotations.FetchMode;
 import java.util.List;
 
 @Entity
-@Table(name = "company")
+@Table(name = "companies")
 @Data
 public class Company {
     @Id
@@ -22,8 +22,8 @@ public class Company {
     private String logoPath;
     private String category;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company")
+    @OneToMany(mappedBy = "company")
     @ToString.Exclude
-    @JsonIgnore
-    private List<CompanyFoodCategory> foodCategories;
+//    @JsonIgnore
+    private List<CompanyFoodCategory> companyFoodCategoryList;
 }

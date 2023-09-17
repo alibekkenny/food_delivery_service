@@ -11,10 +11,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyFoodCategoryDto {
-    private long id;
+    private Long id;
     private String name;
 
-    @JsonProperty("company_id")
-    private long companyId;
+    //    @JsonProperty("company_id")
+    private Long companyId;
     private List<FoodDto> foods;
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +20,15 @@ public class Order {
     private LocalDateTime deliveryTime;
     private String address;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnore
-    @ToString.Exclude
+    @ManyToOne
+    @MapsId("userId")
+    @JoinColumn(name = "user_id", nullable = true)
+//    @JsonIgnore
+//    @ToString.Exclude
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
-    @JsonIgnore
+    @OneToMany(mappedBy = "order")
+//    @JsonIgnore
     @ToString.Exclude
-    private List<OrderFood> orderFoods;
+    private List<OrderFood> orderFoodList;
 }

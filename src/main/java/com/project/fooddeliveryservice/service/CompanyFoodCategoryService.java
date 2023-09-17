@@ -35,6 +35,11 @@ public class CompanyFoodCategoryService implements ICompanyFoodCategoryService {
     }
 
     @Override
+    public CompanyFoodCategory createOrSaveFoodCategory(CompanyFoodCategory foodCategory) {
+        return foodCategoryRepo.save(foodCategory);
+    }
+
+    @Override
     public CompanyFoodCategory updateFoodCategoryById(long id, CompanyFoodCategory foodCategory) {
         CompanyFoodCategory foundFoodCategory = foodCategoryRepo.findById(id);
         if (!Objects.equals(foodCategory.getName(), "")) {

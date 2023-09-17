@@ -13,10 +13,10 @@ import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
-    private long id;
-    @JsonProperty("first_name")
+    private Long id;
+    //    @JsonProperty("firstName")
     private String firstName;
-    @JsonProperty("last_name")
+    //    @JsonProperty("lastName")
     private String lastName;
     private String phone;
     @JsonProperty(access = WRITE_ONLY)

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +21,8 @@ public class User {
     private String address;
     private Integer role; // 1-administrator staff, 2-company employee, 3-deliveryman, 4-customer
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(mappedBy = "user")
     @ToString.Exclude
-    @JsonIgnore
+//    @JsonIgnore
     private List<Order> orders;
 }

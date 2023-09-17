@@ -16,10 +16,8 @@ public class OrderService implements IOrderService {
     private final UserRepository userRepo;
 
     @Override
-    public Order createOrder(long userId, Order order) {
-        if (userRepo.existsById(userId)) {
-            order.setUser(userRepo.findById(userId));
-        }
+    public Order createOrder(Order order) {
+        order.setUser(userRepo.findById(order.getUser().getId()));
         return orderRepo.save(order);
     }
 
@@ -30,7 +28,11 @@ public class OrderService implements IOrderService {
 
     @Override
     public List<Order> getUsersAllActiveOrders(long userId) {
-        return orderRepo.findAllByUserIdAndDeliveryTimeIsNotEmpty(userId);
+        return orderRepo.findAllByUserIdAndDeliveryTimeIsNotNull(userId);
     }
 
+    @Override
+    public List<Order> getAllOrders() {
+        return orderRepo.findAll();
+    }
 }

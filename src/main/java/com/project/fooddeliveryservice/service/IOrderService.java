@@ -10,6 +10,8 @@ public interface IOrderService {
 
     List<Order> getUsersAllActiveOrders(long userId);
 
-    Order createOrder(long userId, Order order);
+    Order createOrder(Order order);
 
+    List<Order> getAllOrders();
+//    Order createOrSaveOrder(Order order);
 }

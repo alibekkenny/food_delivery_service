@@ -7,22 +7,24 @@ import lombok.ToString;
 
 @Entity
 @Data
-@Table(name = "order_food")
+@Table(name = "orderFoods")
 public class OrderFood {
     @EmbeddedId
     OrderFoodKey id;
     private int quantity;
     private double subtotal;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @MapsId("orderId")
     @JoinColumn(name = "order_id", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     @ToString.Exclude
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @MapsId("foodId")
     @JoinColumn(name = "food_id", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     @ToString.Exclude
     private Food food;
 }

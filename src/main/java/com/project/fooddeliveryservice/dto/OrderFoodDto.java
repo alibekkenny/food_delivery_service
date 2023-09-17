@@ -8,9 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderFoodDto {
+    //    private Long id;
     private FoodDto food;
     private int quantity;
     private double subtotal;
-
-
 }

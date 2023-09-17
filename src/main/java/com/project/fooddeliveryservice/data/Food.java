@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "food")
+@Table(name = "foods")
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,12 @@ public class Food {
     private double price;
     private String imagePath;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
+    @MapsId("companyFoodCategoryId")
     @JoinColumn(name = "companyfoodcategory_id", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     @ToString.Exclude
-    CompanyFoodCategory foodCategory;
+    CompanyFoodCategory companyFoodCategory;
 
 
 }

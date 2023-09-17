@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CompanyDto {
-    private long id;
+    private Long id;
     private String name;
-    @JsonProperty("logo_path")
+    //    @JsonProperty("logoPath")
     private String logoPath;
     private String category;
-    @JsonProperty("company_id")
-    private long companyId;
+    //    @JsonProperty("companyId")
+    private Long companyId;
 }

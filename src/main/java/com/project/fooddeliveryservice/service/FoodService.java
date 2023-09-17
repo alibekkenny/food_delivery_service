@@ -16,7 +16,8 @@ public class FoodService implements IFoodService {
 
     @Override
     public Food createFood(long foodCategoryId, Food food) {
-        food.setFoodCategory(foodCategoryRepo.findById(foodCategoryId));
+//        food.setFoodCategory(foodCategoryRepo.findById(foodCategoryId));
+        food.setCompanyFoodCategory(foodCategoryRepo.findById(foodCategoryId));
         return foodRepo.save(food);
     }
 

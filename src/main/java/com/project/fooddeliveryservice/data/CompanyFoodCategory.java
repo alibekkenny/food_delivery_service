@@ -7,7 +7,7 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "company_food_category")
+@Table(name = "companyFoodCategories")
 @Data
 public class CompanyFoodCategory {
     @Id
@@ -15,14 +15,15 @@ public class CompanyFoodCategory {
     private long id;
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
+    @MapsId("companyId")
     @JoinColumn(name = "company_id", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     @ToString.Exclude
     private Company company;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company_food_category")
-    @JsonIgnore
+    @OneToMany(mappedBy = "companyFoodCategory")
+//    @JsonIgnore
     @ToString.Exclude
     private List<Food> foods;
 }
