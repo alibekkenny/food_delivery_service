@@ -22,6 +22,12 @@ public class OrderService implements IOrderService {
     }
 
     @Override
+    public Order createOrSaveOrder(Order order) {
+        return orderRepo.save(order);
+    }
+
+
+    @Override
     public List<Order> getAllByUserId(long userId) {
         return orderRepo.findAllByUserId(userId);
     }

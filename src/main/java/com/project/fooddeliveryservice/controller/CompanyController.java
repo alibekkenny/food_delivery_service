@@ -37,9 +37,9 @@ public class CompanyController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteCompany(@PathVariable("id") long id) {
+    public void deleteCompany(@PathVariable("id") long id) {
         companyService.deleteCompanyById(id);
-        return "Company successfully deleted!";
+//        return "Company successfully deleted!";
     }
 
     @PutMapping("/")

@@ -37,7 +37,7 @@ public class UserController {
         );
     }
 
-    @GetMapping("/{phone}")
+    @GetMapping("/phone/{phone}")
     public UserDto getUserByPhone(@PathVariable String phone) {
         return UserMapper.INSTANCE.userToUserDto(userService.getByPhone(phone));
     }
