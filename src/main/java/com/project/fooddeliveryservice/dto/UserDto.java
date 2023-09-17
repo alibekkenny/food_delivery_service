@@ -1,5 +1,6 @@
 package com.project.fooddeliveryservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class UserDto {
     private String password;
     private String address;
     private int role;
+    @JsonIgnore
     private List<OrderDto> orders;
 
 }

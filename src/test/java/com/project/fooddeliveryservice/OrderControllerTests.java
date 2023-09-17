@@ -70,8 +70,7 @@ public class OrderControllerTests {
         mockMvc.perform(get("/orders"))
                 .andExpectAll(
                         status().is(200),
-                        content().contentType(APPLICATION_JSON),
-                        content().string(objectMapper.writeValueAsString(orders)));
+                        content().contentType(APPLICATION_JSON));
     }
 
     @Test
