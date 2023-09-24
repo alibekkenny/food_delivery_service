@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface CompanyFoodCategoryRepository extends JpaRepository<CompanyFoodCategory, Long> {
     CompanyFoodCategory findById(@Param("id") long id);
+
+//    List<CompanyFoodCategory> findAll();
 }

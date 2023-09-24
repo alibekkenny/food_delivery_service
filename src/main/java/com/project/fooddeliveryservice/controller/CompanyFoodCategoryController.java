@@ -19,12 +19,12 @@ import java.util.List;
 public class CompanyFoodCategoryController {
     private final ICompanyFoodCategoryService foodCategoryService;
 
-    @GetMapping("/")
+    @GetMapping
     List<CompanyFoodCategoryDto> getAllFoodCategories() {
         return CompanyFoodCategoryListMapper.INSTANCE.companyFoodCategoryListToCompanyFoodCategoryListDto(foodCategoryService.getAllFoodCategories());
     }
 
-    @PostMapping("/")
+    @PostMapping
     CompanyFoodCategoryDto createFoodCategory(CompanyFoodCategoryDto foodCategory) {
         return CompanyFoodCategoryMapper.INSTANCE.companyFoodCategoryToCompanyFoodCategoryDto(
                 foodCategoryService.createOrSaveFoodCategory(CompanyFoodCategoryMapper.INSTANCE.companyFoodCategoryDtoToCompanyFoodCategory(foodCategory))

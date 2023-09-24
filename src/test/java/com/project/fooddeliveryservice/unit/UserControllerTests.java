@@ -1,14 +1,11 @@
-package com.project.fooddeliveryservice;
+package com.project.fooddeliveryservice.unit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.fooddeliveryservice.controller.CompanyController;
 import com.project.fooddeliveryservice.controller.UserController;
-import com.project.fooddeliveryservice.data.Company;
 import com.project.fooddeliveryservice.data.User;
-import com.project.fooddeliveryservice.dto.CompanyDto;
 import com.project.fooddeliveryservice.dto.UserDto;
-import com.project.fooddeliveryservice.service.CompanyService;
 import com.project.fooddeliveryservice.service.IUserService;
+import com.project.fooddeliveryservice.util.UserListMapper;
 import com.project.fooddeliveryservice.util.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +72,7 @@ public class UserControllerTests {
                 .andExpectAll(
                         status().is(200),
                         content().contentType(APPLICATION_JSON),
-                        content().string(objectMapper.writeValueAsString(users)));
+                        content().string(objectMapper.writeValueAsString(UserListMapper.INSTANCE.userListToUserDtoList(users))));
     }
 
     @Test

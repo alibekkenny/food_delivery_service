@@ -9,7 +9,7 @@ public interface ICompanyFoodCategoryService {
 
     CompanyFoodCategory createOrSaveFoodCategory(CompanyFoodCategory foodCategory);
 
-    CompanyFoodCategory updateFoodCategoryById(long id, CompanyFoodCategory foodCategory);
+//    CompanyFoodCategory updateFoodCategoryById(long id, CompanyFoodCategory foodCategory);
 
     List<CompanyFoodCategory> getAllFoodCategories();
 

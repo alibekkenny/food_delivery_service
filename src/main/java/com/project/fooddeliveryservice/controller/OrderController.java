@@ -21,17 +21,17 @@ public class OrderController {
 //    public List<OrderDto> getAllOrders() {
 //        orderService.ge
 //    }
-    @PostMapping("/")
+    @PostMapping
     public OrderDto createOrder(OrderDto orderDto) {
         return OrderMapper.INSTANCE.orderToOrderDto(orderService.createOrder(OrderMapper.INSTANCE.orderDtoToOrder(orderDto)));
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<OrderDto> getAllOrders() {
         return OrderListMapper.INSTANCE.orderListToOrderDtoList(orderService.getAllOrders());
     }
 
-    @PutMapping("/")
+    @PutMapping
     public OrderDto updateOrder(OrderDto orderDto) {
         return OrderMapper.INSTANCE.orderToOrderDto(orderService.createOrSaveOrder(OrderMapper.INSTANCE.orderDtoToOrder(orderDto)));
     }

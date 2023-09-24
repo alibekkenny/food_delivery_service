@@ -18,19 +18,19 @@ import java.util.List;
 public class UserController {
     private final IUserService userService;
 
-    @GetMapping("/")
+    @GetMapping
     public List<UserDto> getAllUsers() {
         return UserListMapper.INSTANCE.userListToUserDtoList(userService.getAllUsers());
     }
 
-    @PostMapping("/")
+    @PostMapping
     public UserDto createUser(@RequestBody UserDto user) {
         return UserMapper.INSTANCE.userToUserDto(
                 userService.createOrSaveUser(UserMapper.INSTANCE.userDtoToUser(user))
         );
     }
 
-    @PutMapping("/")
+    @PutMapping
     public UserDto updateUser(@RequestBody UserDto user) {
         return UserMapper.INSTANCE.userToUserDto(
                 userService.createOrSaveUser(UserMapper.INSTANCE.userDtoToUser(user))

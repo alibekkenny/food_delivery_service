@@ -1,15 +1,10 @@
-package com.project.fooddeliveryservice;
+package com.project.fooddeliveryservice.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.fooddeliveryservice.controller.CompanyController;
 import com.project.fooddeliveryservice.controller.OrderController;
-import com.project.fooddeliveryservice.data.Company;
 import com.project.fooddeliveryservice.data.Order;
-import com.project.fooddeliveryservice.dto.CompanyDto;
 import com.project.fooddeliveryservice.dto.OrderDto;
-import com.project.fooddeliveryservice.service.CompanyService;
 import com.project.fooddeliveryservice.service.OrderService;
-import org.aspectj.weaver.ast.Or;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -22,14 +17,11 @@ import java.util.List;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(controllers = OrderController.class)
-public class OrderControllerTests {
+public class OrderControllerIT {
     @Autowired
     private MockMvc mockMvc;
     @Autowired

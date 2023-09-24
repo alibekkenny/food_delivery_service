@@ -24,6 +24,6 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
     @ToString.Exclude
-//    @JsonIgnore
+    @JsonIgnore
     private List<CompanyFoodCategory> companyFoodCategoryList;
 }

@@ -16,5 +16,6 @@ public class CompanyFoodCategoryDto {
 
     //    @JsonProperty("company_id")
     private Long companyId;
+    //    @
     private List<FoodDto> foods;
 }

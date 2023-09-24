@@ -19,12 +19,12 @@ import java.util.List;
 public class CompanyController {
     private final ICompanyService companyService;
 
-    @GetMapping("/")
+    @GetMapping
     public List<CompanyDto> getAllCompanies() {
         return CompanyListMapper.INSTANCE.companyListToCompanyDtoList(companyService.getAllCompanies());
     }
 
-    @PostMapping("/")
+    @PostMapping
     public CompanyDto createCompany(@RequestBody CompanyDto company) {
         return CompanyMapper.INSTANCE.companyToCompanyDto(
                 companyService.createOrSaveCompany(CompanyMapper.INSTANCE.companyDtoToCompany(company))
@@ -42,7 +42,7 @@ public class CompanyController {
 //        return "Company successfully deleted!";
     }
 
-    @PutMapping("/")
+    @PutMapping
     public CompanyDto updateCompany(@RequestBody CompanyDto company) {
         return CompanyMapper.INSTANCE.companyToCompanyDto(
                 companyService.createOrSaveCompany(CompanyMapper.INSTANCE.companyDtoToCompany(company))

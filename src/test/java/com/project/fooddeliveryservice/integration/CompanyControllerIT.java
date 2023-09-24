@@ -1,11 +1,12 @@
-package com.project.fooddeliveryservice;
+package com.project.fooddeliveryservice.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.fooddeliveryservice.controller.CompanyController;
 import com.project.fooddeliveryservice.data.Company;
 import com.project.fooddeliveryservice.dto.CompanyDto;
 import com.project.fooddeliveryservice.service.CompanyService;
-import jakarta.persistence.Table;
+import com.project.fooddeliveryservice.util.CompanyListMapper;
+import com.project.fooddeliveryservice.util.CompanyMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -17,14 +18,11 @@ import java.util.List;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(controllers = CompanyController.class)
-public class CompanyControllerTests {
+public class CompanyControllerIT {
     @Autowired
     private MockMvc mockMvc;
     @Autowired
@@ -57,21 +55,18 @@ public class CompanyControllerTests {
 
     @Test
     public void itShouldGetAllCompanies() throws Exception {
-        Company company1 = new Company();
-        company1.setName("KFC");
-        Company company2 = new Company();
-        company2.setName("McDonalds");
-        var companies = List.of(company1, company2);
+        var companies = List.of(new Company(), new Company());
         when(companyService.getAllCompanies()).thenReturn(companies);
 
         mockMvc.perform(get("/companies"))
-                .andExpect(status().is(200));
+                .andExpectAll(status().is(200), content().contentType(APPLICATION_JSON),
+                        content().string(objectMapper.writeValueAsString(CompanyListMapper.INSTANCE.companyListToCompanyDtoList(companies))));
     }
 
     @Test
     public void itShouldGetCompanyById() throws Exception {
         Company company = new Company();
-
+        company.setId(1);
         company.setName("KFC");
         company.setCategory("Fast Food Restaurant");
 
@@ -81,7 +76,7 @@ public class CompanyControllerTests {
                 .andExpectAll(
                         status().is(200),
                         content().contentType(APPLICATION_JSON),
-                        content().string(objectMapper.writeValueAsString(company)));
+                        content().string(objectMapper.writeValueAsString(CompanyMapper.INSTANCE.companyToCompanyDto(company))));
     }
 
     @Test

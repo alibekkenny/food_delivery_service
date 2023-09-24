@@ -39,14 +39,14 @@ public class CompanyFoodCategoryService implements ICompanyFoodCategoryService {
         return foodCategoryRepo.save(foodCategory);
     }
 
-    @Override
-    public CompanyFoodCategory updateFoodCategoryById(long id, CompanyFoodCategory foodCategory) {
-        CompanyFoodCategory foundFoodCategory = foodCategoryRepo.findById(id);
-        if (!Objects.equals(foodCategory.getName(), "")) {
-            foodCategory.setName(foodCategory.getName());
-        }
-        return foodCategoryRepo.save(foundFoodCategory);
-    }
+//    @Override
+//    public CompanyFoodCategory updateFoodCategoryById(long id, CompanyFoodCategory foodCategory) {
+//        CompanyFoodCategory foundFoodCategory = foodCategoryRepo.findById(id);
+//        if (!Objects.equals(foodCategory.getName(), "")) {
+//            foodCategory.setName(foodCategory.getName());
+//        }
+//        return foodCategoryRepo.save(foundFoodCategory);
+//    }
 
 
 }
