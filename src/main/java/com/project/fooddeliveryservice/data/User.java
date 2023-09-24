@@ -17,6 +17,7 @@ import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private long id;
     private String firstName;
     private String lastName;
@@ -25,9 +26,9 @@ public class User {
     private String password;
     private String address;
     private Integer role; // 1-administrator staff, 2-company employee, 3-deliveryman, 4-customer
-
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
+//    @JoinColumn(name = "user_id", nullable = true)
     @JsonIgnore
     private List<Order> orders;
 }

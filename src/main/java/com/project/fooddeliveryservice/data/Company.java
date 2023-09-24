@@ -17,6 +17,7 @@ import java.util.List;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "company_id")
     private long id;
     private String name;
     private String logoPath;

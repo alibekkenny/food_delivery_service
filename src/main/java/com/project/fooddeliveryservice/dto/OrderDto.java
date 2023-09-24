@@ -24,8 +24,8 @@ public class OrderDto {
     @JsonFormat(pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime deliveryTime;
     private String address;
-    //    @JsonProperty("userId")
+    @JsonProperty("userId")
     private Long userId;
-    //    @JsonProperty("order_foods")
+    //        @JsonProperty("order_foods")
     private List<OrderFoodDto> orderFoods;
 }

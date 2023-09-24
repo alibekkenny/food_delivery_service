@@ -17,12 +17,14 @@ public class OrderService implements IOrderService {
 
     @Override
     public Order createOrder(Order order) {
+        order.setOrderTime(LocalDateTime.now());
         order.setUser(userRepo.findById(order.getUser().getId()));
         return orderRepo.save(order);
     }
 
     @Override
     public Order createOrSaveOrder(Order order) {
+        order.setOrderTime(LocalDateTime.now());
         return orderRepo.save(order);
     }
 

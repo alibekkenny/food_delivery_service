@@ -12,6 +12,7 @@ import java.util.List;
 public class CompanyFoodCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "companyfoodcategory_id")
     private long id;
     private String name;
 
