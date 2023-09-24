@@ -9,6 +9,7 @@ import com.project.fooddeliveryservice.dto.CompanyDto;
 import com.project.fooddeliveryservice.dto.UserDto;
 import com.project.fooddeliveryservice.service.CompanyService;
 import com.project.fooddeliveryservice.service.IUserService;
+import com.project.fooddeliveryservice.util.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -58,7 +59,7 @@ public class UserControllerTests {
         when(userService.createOrSaveUser(any(User.class))).thenReturn(user);
         mockMvc.perform(post("/users")
                         .contentType(APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(userDto)))
+                        .content(objectMapper.writeValueAsString(UserMapper.INSTANCE.userDtoToUser(userDto))))
                 .andExpectAll(
                         status().is(200),
                         content().contentType(APPLICATION_JSON),
@@ -100,7 +101,7 @@ public class UserControllerTests {
     @Test
     public void itShouldUpdateUser() throws Exception {
         User user = new User();
-
+        user.setId(1);
         user.setRole(1);
         user.setAddress("Hawaii, Oahu");
         user.setPhone("77777777777");
@@ -109,7 +110,7 @@ public class UserControllerTests {
         user.setPassword("blessed");
 
         UserDto userDto = new UserDto();
-
+//        userDto.setId(new Long(1));
         userDto.setRole(1);
         userDto.setAddress("Hawaii, Oahu");
         userDto.setPhone("77777777777");
