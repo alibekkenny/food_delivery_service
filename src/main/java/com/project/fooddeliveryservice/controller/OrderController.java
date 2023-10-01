@@ -22,7 +22,7 @@ public class OrderController {
 //        orderService.ge
 //    }
     @PostMapping
-    public OrderDto createOrder(OrderDto orderDto) {
+    public OrderDto createOrder(@RequestBody OrderDto orderDto) {
         return OrderMapper.INSTANCE.orderToOrderDto(orderService.createOrder(OrderMapper.INSTANCE.orderDtoToOrder(orderDto)));
     }
 
@@ -32,7 +32,7 @@ public class OrderController {
     }
 
     @PutMapping
-    public OrderDto updateOrder(OrderDto orderDto) {
+    public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
         return OrderMapper.INSTANCE.orderToOrderDto(orderService.createOrSaveOrder(OrderMapper.INSTANCE.orderDtoToOrder(orderDto)));
     }
 

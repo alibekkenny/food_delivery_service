@@ -52,7 +52,7 @@ public class CompanyFoodCategoryControllerTests {
         companyFoodCategoryDto.setName("Combos");
         companyFoodCategoryDto.setCompanyId(company.getId());
 //        companyFoodCategoryDto.setFoods();
-        when(companyFoodCategoryService.createOrSaveFoodCategory(any(CompanyFoodCategory.class))).thenReturn(companyFoodCategory);
+        when(companyFoodCategoryService.createFoodCategory(any(CompanyFoodCategory.class))).thenReturn(companyFoodCategory);
         mockMvc.perform(post("/food_categories")
                         .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(companyFoodCategoryDto)))

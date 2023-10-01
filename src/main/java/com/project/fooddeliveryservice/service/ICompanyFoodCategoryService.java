@@ -5,7 +5,7 @@ import com.project.fooddeliveryservice.data.CompanyFoodCategory;
 import java.util.List;
 
 public interface ICompanyFoodCategoryService {
-    CompanyFoodCategory createFoodCategoryByCompanyId(long id, CompanyFoodCategory foodCategory);
+    CompanyFoodCategory createFoodCategory(CompanyFoodCategory foodCategory);
 
     CompanyFoodCategory createOrSaveFoodCategory(CompanyFoodCategory foodCategory);
 

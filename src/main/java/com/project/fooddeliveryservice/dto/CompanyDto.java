@@ -15,5 +15,5 @@ public class CompanyDto {
     private String logoPath;
     private String category;
     //    @JsonProperty("companyId")
-    private Long companyId;
+//    private Long companyId;
 }

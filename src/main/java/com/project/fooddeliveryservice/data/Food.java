@@ -13,7 +13,7 @@ import java.util.List;
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "food_id")
+//    @Column(name = "food_id")
     private long id;
     private String name;
     private String description;
@@ -21,7 +21,7 @@ public class Food {
     private String imagePath;
 
     @ManyToOne
-    @MapsId("companyFoodCategoryId")
+//    @MapsId("companyFoodCategoryId")
     @JoinColumn(name = "companyfoodcategory_id", nullable = false)
 //    @JsonIgnore
     @ToString.Exclude

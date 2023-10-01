@@ -25,9 +25,9 @@ public class CompanyFoodCategoryController {
     }
 
     @PostMapping
-    CompanyFoodCategoryDto createFoodCategory(CompanyFoodCategoryDto foodCategory) {
+    CompanyFoodCategoryDto createFoodCategory(@RequestBody CompanyFoodCategoryDto foodCategory) {
         return CompanyFoodCategoryMapper.INSTANCE.companyFoodCategoryToCompanyFoodCategoryDto(
-                foodCategoryService.createOrSaveFoodCategory(CompanyFoodCategoryMapper.INSTANCE.companyFoodCategoryDtoToCompanyFoodCategory(foodCategory))
+                foodCategoryService.createFoodCategory(CompanyFoodCategoryMapper.INSTANCE.companyFoodCategoryDtoToCompanyFoodCategory(foodCategory))
         );
     }
 }

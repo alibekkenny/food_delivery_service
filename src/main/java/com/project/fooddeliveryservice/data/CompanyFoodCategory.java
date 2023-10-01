@@ -12,16 +12,21 @@ import java.util.List;
 public class CompanyFoodCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "companyfoodcategory_id")
+//    @Column(name = "companyfoodcategory_id")
     private long id;
     private String name;
 
     @ManyToOne
-    @MapsId("companyId")
+//    @MapsId("companyId")
     @JoinColumn(name = "company_id", nullable = false)
 //    @JsonIgnore
     @ToString.Exclude
     private Company company;
+
+//    public void setCompany(Company company) {
+//
+//        this.company = company;
+//    }
 
     @OneToMany(mappedBy = "companyFoodCategory")
 //    @JsonIgnore

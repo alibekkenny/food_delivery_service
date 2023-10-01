@@ -17,7 +17,7 @@ import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+//    @Column(name = "user_id")
     private long id;
     private String firstName;
     private String lastName;

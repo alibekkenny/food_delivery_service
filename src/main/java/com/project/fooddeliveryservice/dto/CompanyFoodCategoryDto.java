@@ -14,7 +14,7 @@ public class CompanyFoodCategoryDto {
     private Long id;
     private String name;
 
-    //    @JsonProperty("company_id")
+    @JsonProperty("companyId")
     private Long companyId;
     //    @
     private List<FoodDto> foods;

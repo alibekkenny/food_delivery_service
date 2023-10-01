@@ -14,7 +14,7 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
+//    @Column(name = "order_id")
     private long id;
     private double totalCost;
     private LocalDateTime orderTime;
@@ -22,10 +22,10 @@ public class Order {
     private String address;
 
     @ManyToOne
-    @MapsId("userId")
+//    @MapsId("userId")
     @JoinColumn(name = "user_id", nullable = true)
 //    @JsonIgnore
-//    @ToString.Exclude
+    @ToString.Exclude
     private User user;
 
     @OneToMany(mappedBy = "order")
