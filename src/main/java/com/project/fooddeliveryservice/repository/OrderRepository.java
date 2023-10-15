@@ -13,6 +13,5 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findAllByUserId(@Param("userId") long userId);
 
-    //    List<Order> findAllByUserIdAndDeliveryTimeIsNotEmpty(@Param("userId") long userId);
     List<Order> findAllByUserIdAndDeliveryTimeIsNotNull(@Param("userId") long userId);
 }
