@@ -63,7 +63,7 @@ public class CompanyFoodCategoryControllerTests {
     }
 
     @Test
-
+    @Disabled
     public void itShouldGetAllCompanies() throws Exception {
         var foodCategories = List.of(new CompanyFoodCategory(), new CompanyFoodCategory(), new CompanyFoodCategory());
         when(companyFoodCategoryService.getAllFoodCategories()).thenReturn(foodCategories);

@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.3</version>
+        <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.project</groupId>
@@ -16,8 +16,16 @@
     <properties>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <java.version>17</java.version>
-        <org.projectlombok.version>1.18.28</org.projectlombok.version>
+        <org.projectlombok.version>1.18.30</org.projectlombok.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+        <start-class>com.project.fooddeliveryservice.FoodDeliveryServiceApplication</start-class>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">
+            jdbc:postgresql://localhost:5432/food_delivery_service
+        </property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">aliba</property>
+        <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
     </properties>
     <dependencies>
         <dependency>
@@ -96,6 +104,13 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--                <version></version>-->
+            </plugin>
+
         </plugins>
     </build>
 
